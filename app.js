@@ -1,22 +1,13 @@
-require('dotenv').config()
+require('./config/mongoose')
 const express = require('express')
-const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
-
-const db = mongoose.connection
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+app.engine('hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-  res.send('hello world.')
+  res.render('index')
 })
 
 app.listen(3000, () => {
