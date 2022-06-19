@@ -1,1 +1,30 @@
-<h2>Hello world! 這是 index</h2>
+<div class="container">
+
+  <div class="upper">
+    <form action="./restaurants">
+      <h4 class="mb-2" for="sort">選擇支出類別</h4>
+      <select id="sort" name="sort" class="form-control" onchange="form.submit()">
+        <option>請選擇類別</option>
+        <option value="家居物業">家居物業</option>
+        <option value="交通出行">交通出行</option>
+        <option value="休閒娛樂">休閒娛樂</option>
+        <option value="餐飲食品">餐飲食品</option>
+        <option value="其他">其他</option>
+      </select>
+    </form>
+    <div class="mt-2 d-inline-flex">
+      <h4>總金額：</h4>
+      <div class="fs-1">2000</div>
+    </div>
+
+    <div class="content">
+      <ul>
+        {{#each Records}}
+        <li>
+          {{this.name}}
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+  </div>
