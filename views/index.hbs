@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mx-10">
 
   <div class="upper">
     <form action="./restaurants">
@@ -16,15 +16,35 @@
       <h4>總金額：</h4>
       <div class="fs-1" style="color:#fd7e14">2000</div>
     </div>
-
-    <div class="content">
-      <ul>
-        {{#each Records}}
-        <li>
-          {{this.name}}
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-
   </div>
+  <div class="content">
+    <ul>
+      {{#each Records}}
+      <li class="list-group-item mt-1">
+        <div class="row justify-content-between">
+
+          <div class='col-1 category-icon align-self-center'>
+            <i class='{{this.icon}} mx-auto' style='max-width: 30px; font-size: 30px; color: #174480;'></i>
+          </div>
+
+          <div class='col d-flex flex-column align-item-center'>
+            <span>{{this.name}}</span>
+            <span>{{this.date}}</span>
+          </div>
+
+          <div class='col d-flex flex-column justify-content-center'>
+            ${{this.amount}}
+          </div>
+
+          <div class="col-auto">
+            <a class="btn btn-success" href="./todos/{{ this._id }}/edit">Edit</a>
+            <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
