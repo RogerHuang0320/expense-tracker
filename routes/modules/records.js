@@ -32,4 +32,10 @@ router.put('/:id/edit', async (req, res) => {
   res.redirect('/')
 })
 
+router.delete('/:id', async (req, res) => {
+  const _id = req.params.id
+  await Record.findByIdAndDelete(_id)
+  res.redirect('/')
+})
+
 module.exports = router
