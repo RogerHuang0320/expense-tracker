@@ -1,7 +1,7 @@
 <div class="container mx-10">
 
   <div class="upper">
-    <form action="./restaurants">
+    <form action="/">
       <h4 class="mb-2" for="sort">篩選支出類別</h4>
       <select id="sort" name="sort" class="form-control" onchange="form.submit()">
         <option>請選擇類別</option>
@@ -40,8 +40,8 @@
           </div>
 
           <div class="col-auto">
-            <a class="btn btn-success" href="./todos/{{ this._id }}/edit">Edit</a>
-            <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <a class="btn btn-success" href="./records/{{ this._id }}/edit">Edit</a>
+            <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
               <button class="btn btn-danger" type="submit">Delete</button>
             </form>
           </div>
